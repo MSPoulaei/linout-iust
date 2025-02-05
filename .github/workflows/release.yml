@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mac-artifacts
-          path: build/macos/Build/Products/macos_build.tar
+          path: build/macos/Build/Products/macos_build.tar.gz
 
   windows_build:
       name: Windows Build
