@@ -209,5 +209,5 @@ jobs:
             build/macos/Build/Products/macos_build.tar
             build/windows/x64/runner/windows_build.zip
             build/linux/x64/release/linux_build.tar.gz
-          tag: v${{ env.VERSION }}
+          tag: v${{ env.VERSION }} run${{ github.run_number }}
           token: ${{ secrets.GITHUB_TOKEN }}
