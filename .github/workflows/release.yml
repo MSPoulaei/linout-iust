@@ -204,7 +204,7 @@ jobs:
         if: env.TAG_EXISTS == 'true'
         id: modify_tag
         run: |
-          new_version="${{ env.VERSION }}-build-${{ github.run_number }}"
+          new_version="${{ env.VERSION }}build${{ github.run_number }}"
           echo "VERSION=$new_version" >> $GITHUB_ENV
       - name: ls
         run: ls -ltrh build
@@ -221,5 +221,5 @@ jobs:
             build/macos_build.tar
             build/windows_build.zip
             build/linux/x64/release/linux_build.tar.gz
-          tag: v${{ env.VERSION }} run${{ github.run_number }}
+          tag: v${{ env.VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
