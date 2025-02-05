@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - master
-      - cicd
 
 jobs:  
   apple_build:      
@@ -206,8 +205,6 @@ jobs:
         run: |
           new_version="${{ env.VERSION }}build${{ github.run_number }}"
           echo "VERSION=$new_version" >> $GITHUB_ENV
-      - name: ls
-        run: ls -ltrh build
         #13 Create Release
       - name: Create Release
         uses: ncipollo/release-action@v1
@@ -218,7 +215,7 @@ jobs:
             build/app/outputs/flutter-apk/app-x86_64-release.apk
             build/app/outputs/bundle/release/app-release.aab
             build/ios_build.tar.gz
-            build/macos_build.tar
+            build/macos_build.tar.gz
             build/windows_build.zip
             build/linux/x64/release/linux_build.tar.gz
           tag: v${{ env.VERSION }}
