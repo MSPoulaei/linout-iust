@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutUsPage extends StatelessWidget {
-  var githubUrl = "https://github.com/MSPoulaei/Samarium";
-  var telegramId = "sadegh369";
+  static const githubUrl = "https://github.com/MSPoulaei/linout-iust";
+  static const telegramId = "sadegh369";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
