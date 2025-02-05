@@ -188,22 +188,23 @@ jobs:
           version=$(grep '^version: ' pubspec.yaml | cut -d ' ' -f 2 | tr -d '\r')
           echo "VERSION=$version" >> $GITHUB_ENV
 
-        #11 Check if Tag Exists
       - name: Check if Tag Exists
         id: check_tag
         run: |
-          if git rev-parse "v${{ env.VERSION }}" >/dev/null 2>&1; then
-            echo "TAG_EXISTS=true" >> $GITHUB_ENV
-          else
-            echo "TAG_EXISTS=false" >> $GITHUB_ENV
-          fi
+            TAG_CHECK=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/git/refs/tags/v${{ env.VERSION }}")
+            if [[ $TAG_CHECK == *"sha"* ]]; then
+              echo "TAG_EXISTS=true" >> $GITHUB_ENV
+            else
+              echo "TAG_EXISTS=false" >> $GITHUB_ENV
+            fi
 
         #12 Modify Tag if it Exists
       - name: Modify Tag
         if: env.TAG_EXISTS == 'true'
         id: modify_tag
         run: |
-          new_version="${{ env.VERSION }}build${{ github.run_number }}"
+          new_version="${{ env.VERSION }}-build-${{ github.run_number }}"
           echo "VERSION=$new_version" >> $GITHUB_ENV
         #13 Create Release
       - name: Create Release
