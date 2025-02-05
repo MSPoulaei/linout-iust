@@ -51,10 +51,14 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: apple-artifacts
-          path: |
-            build/ios_build.tar.gz
-            build/macos/Build/Products/macos_build.tar
+          name: ios-artifacts
+          path: build/ios_build.tar.gz
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac-artifacts
+          path: build/macos/Build/Products/macos_build.tar
 
   windows_build:
       name: Windows Build
@@ -106,7 +110,14 @@ jobs:
       - name: Download Apple Artifacts
         uses: actions/download-artifact@v4
         with:
-          name: apple-artifacts
+          name: ios-artifacts
+          path: build/
+
+        # 2. Download Apple Artifacts
+      - name: Download Apple Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: mac-artifacts
           path: build/
 
         # 3. Download Windows Artifacts
@@ -207,8 +218,8 @@ jobs:
             build/app/outputs/flutter-apk/app-x86_64-release.apk
             build/app/outputs/bundle/release/app-release.aab
             build/ios_build.tar.gz
-            build/macos/Build/Products/macos_build.tar
-            build/windows/x64/runner/windows_build.zip
+            build/macos_build.tar
+            build/windows_build.zip
             build/linux/x64/release/linux_build.tar.gz
           tag: v${{ env.VERSION }} run${{ github.run_number }}
           token: ${{ secrets.GITHUB_TOKEN }}
