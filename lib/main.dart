@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:linout_iust/screens/home_page.dart';
 import 'package:provider/provider.dart';
 import 'providers/account_provider.dart';
-import 'screens/account_list_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       create: (_) => AccountProvider()..loadAccounts(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'IUST WiFi Manager',
+        title: 'IUST Login Manager',
         theme: ThemeData(
           primarySwatch: Colors.cyan,
           visualDensity: VisualDensity.adaptivePlatformDensity,

@@ -5,10 +5,10 @@ import 'about_us_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
 
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  void _onItemTapped(int index) {
+  void onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
       // Animate to the selected page when tapping bottom nav items
@@ -51,11 +51,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('IUST WiFi Manager'),
+        title: Text(
+          'IUST Login Manager',
+          style: TextStyle(color: Colors.white),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
         backgroundColor: Color(0xFF0e6a8c),
         actions: [
           IconButton(
-            icon: Icon(Icons.info_outline),
+            icon: Icon(
+              Icons.info_outline,
+            ),
             tooltip: 'About Us',
             onPressed: () {
               // Navigate to About Us Page
@@ -81,12 +89,12 @@ class _HomePageState extends State<HomePage> {
             label: 'Accounts',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
-            label: 'Info',
+            icon: Icon(Icons.network_check),
+            label: 'Status',
           ),
         ],
         currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+        onTap: onItemTapped,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
         backgroundColor: Colors.white,

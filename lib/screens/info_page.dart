@@ -86,7 +86,7 @@ class _InfoPageState extends State<InfoPage> {
     var iconColor = _info['isConnected'] == true ? Colors.green : Colors.red;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Info'),
+        title: Text('Network Status'),
       ),
       body: RefreshIndicator(
         onRefresh: _fetchInfo,
@@ -109,7 +109,7 @@ class _InfoPageState extends State<InfoPage> {
                     SizedBox(height: 16),
                     InfoRow(
                       icon: Icons.data_usage,
-                      label: 'Total Usage',
+                      label: 'Total Usage(U/D)',
                       value: _info['usage'] ?? 'Loading...',
                       iconColor: iconColor,
                     ),
@@ -121,9 +121,22 @@ class _InfoPageState extends State<InfoPage> {
                       iconColor: iconColor,
                     ),
                     SizedBox(height: 16),
-                    Text(
-                      'Last Updated: ${_info['lastUpdated'] != null ? _timeAgo(DateTime.parse(_info['lastUpdated'])) : 'Loading...'}',
-                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                    // Text(
+                    //   'Last Updated: ${_info['lastUpdated'] != null ? _timeAgo(DateTime.parse(_info['lastUpdated'])) : 'Loading...'}',
+                    //   style: TextStyle(fontSize: 12, color: Colors.grey),
+                    // ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Last Updated: ${_info['lastUpdated'] != null ? _timeAgo(DateTime.parse(_info['lastUpdated'])) : 'Loading...'}',
+                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.refresh, color: Colors.blue),
+                          onPressed: _fetchInfo,
+                        ),
+                      ],
                     ),
                     SizedBox(height: 16),
                     if (_info['isConnected'] == true)

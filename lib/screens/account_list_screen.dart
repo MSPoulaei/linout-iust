@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:linout_iust/screens/home_page.dart';
 import 'package:provider/provider.dart';
 import '../models/account.dart';
 import '../providers/account_provider.dart';
@@ -53,6 +54,7 @@ class AccountListScreen extends StatelessWidget {
         foregroundColor: Colors.white,
         onPressed: () => _addAccount(context),
         child: Icon(Icons.add),
+        tooltip: 'Add Account',
       ),
     );
   }
@@ -125,6 +127,11 @@ class AccountListScreen extends StatelessWidget {
           content: Text('Connected successfully'),
         ),
       );
+      // Find the nearest HomePage ancestor and switch to Info tab (index 1)
+      final homePage = context.findAncestorStateOfType<HomePageState>();
+      if (homePage != null) {
+        homePage.onItemTapped(1); // Switch to the Info tab
+      }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:beautiful_soup_dart/beautiful_soup.dart';
-import 'package:linout_iust/models/account.dart';
 
 class NetworkService {
   static const String loginUrl = 'https://login.iust.ac.ir/login.php';

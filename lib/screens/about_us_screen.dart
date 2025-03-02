@@ -9,7 +9,13 @@ class AboutUsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About Us'),
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        title: Text(
+          'About Us',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Color(0xff0e6a8c),
       ),
       body: Padding(
