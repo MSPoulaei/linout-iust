@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.cyan,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: 'Lexend', // Add this line
         ),
         home: HomePage(),
       ),

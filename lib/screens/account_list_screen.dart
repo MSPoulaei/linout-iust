@@ -20,30 +20,45 @@ class AccountListScreen extends StatelessWidget {
             itemCount: accountProvider.accounts.length,
             itemBuilder: (context, index) {
               final account = accountProvider.accounts[index];
-              return ListTile(
-                title: Text(account.name),
-                subtitle: Text(account.username),
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      icon: Icon(Icons.edit),
-                      tooltip: "Edit Account",
-                      onPressed: () => _editAccount(context, account),
+              return Column(
+                children: [
+                  Card(
+                    elevation: 2.0,
+                    margin:
+                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
-                    IconButton(
-                      icon: Icon(Icons.delete, color: Colors.red),
-                      tooltip: "Delete Account",
-                      onPressed: () => _deleteAccount(context, account),
+                    child: ListTile(
+                      title: Text(account.name),
+                      subtitle: Text(account.username),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.edit),
+                            tooltip: "Edit Account",
+                            onPressed: () => _editAccount(context, account),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.delete, color: Colors.red),
+                            tooltip: "Delete Account",
+                            onPressed: () => _deleteAccount(context, account),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.link, color: Colors.green),
+                            tooltip: "Connect Account",
+                            onPressed: () async =>
+                                await _connectAccount(context, account),
+                          ),
+                        ],
+                      ),
                     ),
-                    IconButton(
-                      icon: Icon(Icons.link, color: Colors.green),
-                      tooltip: "Connect Account",
-                      onPressed: () async =>
-                          await _connectAccount(context, account),
-                    ),
-                  ],
-                ),
+                  ),
+                  // Divider(
+                  //   thickness: .5,
+                  // ),
+                ],
               );
             },
           );
@@ -194,8 +209,12 @@ class _AccountFormScreenState extends State<AccountFormScreen> {
                 controller: _passwordController,
                 decoration: InputDecoration(labelText: 'Password'),
                 obscureText: true,
-                validator: (value) =>
-                    value?.isEmpty ?? true ? 'Please enter a password' : null,
+                validator: (value) {
+                  if (widget.account == null && (value?.isEmpty ?? true)) {
+                    return 'Please enter a password';
+                  }
+                  return null;
+                },
               ),
               SizedBox(height: 16),
               ElevatedButton(
