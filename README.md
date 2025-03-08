@@ -20,6 +20,57 @@ IUST Login Manager is a **cross-platform Flutter application** designed to help 
 
 We prioritize your privacy. All passwords and sensitive data are securely **encrypted** to ensure your information remains safe.
 
+## Download
+
+<div align=left>
+    <table>
+        <thead align="left">
+            <tr>
+                <th>OS / Arch</th>
+                <!-- <th>Compatibility</th> -->
+            </tr>
+        </thead>
+        <tbody align="left">
+            <tr>
+                <td>
+                    <a href="https://github.com/MSPoulaei/linout-iust/releases/latest/download/windows_build.zip"><img src="https://img.shields.io/badge/Windows-Portable x64-005AA8.svg?logo=gitforwindows"></a>
+                </td>
+                <!-- <td>
+                    7+<br>
+                </td> -->
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://github.com/MSPoulaei/linout-iust/releases/latest/download/macos_build.tar.gz"><img src="https://img.shields.io/badge/macOS-ZIP x64-9e9e9e.svg?logo=apple" /></a>
+                </td>
+                <!-- <td>10.15+</td> -->
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://github.com/MSPoulaei/linout-iust/releases/latest/download/linux_build.tar.gz"><img src="https://img.shields.io/badge/Linux-tar.xz x64-EDC204.svg?logo=linux"></a>
+                </td>
+                <!-- <td>
+                    Gnome<br>
+                    KDE
+                </td> -->
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://github.com/MSPoulaei/linout-iust/releases/latest/download/app-arm64-v8a-release.apk"><img src="https://img.shields.io/badge/Android-ARMv8-0d7365.svg?logo=android"></a>
+                </td>
+                <!-- <td>6+</td> -->
+            </tr>
+            <tr>
+                <td>
+                <a href="https://github.com/MSPoulaei/linout-iust/releases/latest/download/ios_build.tar.gz"><img src="https://img.shields.io/badge/iOS-IPA-pink.svg?logo=apple"></a>
+                </td>
+                <!-- <td></td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
 ## Developer
 
 This app was developed by **Mohammad Sadegh Poulaei**.  
