@@ -98,6 +98,10 @@ Contributions are welcome! If you'd like to contribute, please fork the reposito
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## Acknowledgment
+
+Special thanks to [**Arash Farzaneh Nejad**](https://github.com/saneswan) for refining the UI/UX design.
+
 ---
 
 Thank you for using **IUST Login Manager**!  
