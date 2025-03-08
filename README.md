@@ -1,12 +1,20 @@
 # IUST Login Manager (Linout)
 
-IUST WiFi Manager is a **cross-platform Flutter application** designed to help students and staff at **Iran University of Science and Technology (IUST)** manage their internet accounts effortlessly. The app allows you to view usage statistics, manage your connection, and securely handle sensitive information.
+IUST Login Manager is a **cross-platform Flutter application** designed to help students and staff at **Iran University of Science and Technology (IUST)** manage their internet accounts effortlessly. The app allows you to view usage statistics, manage your connection, and securely handle sensitive information.
 
 ## Features
 
 - **Usage Statistics**: Monitor your internet usage, including data consumption, IP address, and connection duration.
 - **Secure Connectivity**: Easily connect or disconnect from the internet while ensuring your credentials are encrypted for maximum security.
 - **Cross-Platform**: Built with Flutter, the app runs seamlessly on both Android and iOS devices.
+
+## Screenshots
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="images/screenshot1.jpg" alt="Screenshot 1" style="width: 32%;">
+  <img src="images/screenshot2.jpg" alt="Screenshot 2" style="width: 32%;">
+  <img src="images/screenshot3.jpg" alt="Screenshot 3" style="width: 32%;">
+</div>
 
 ## Security
 
@@ -41,5 +49,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-Thank you for using **IUST WiFi Manager**!  
+Thank you for using **IUST Login Manager**!  
 Feel free to reach out if you have any questions or feedback.
